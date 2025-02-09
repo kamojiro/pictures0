@@ -2,3 +2,5 @@ logs/
 .mypy_cache/
 for_llm/
 pages/
+access.md
+imgs/
