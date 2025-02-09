@@ -1,0 +1,9 @@
+@base_url=http://localhost:8000
+
+### hello
+
+GET {{base_url}}/api/hello
+
+### get url
+
+GET {{base_url}}/api/gcs/random/ocmai/signed-url
