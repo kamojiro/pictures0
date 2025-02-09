@@ -27,7 +27,7 @@ RUN uv sync --frozen
 
 FROM python:3.12-slim-bookworm
 
-EXPOSE 8000
+EXPOSE 8080
 
 RUN apt-get update
 
@@ -39,4 +39,4 @@ RUN rm -rf /app/backend/static/*
 COPY --from=frontend-builder /app/frontend/dist/ /app/backend/static/
 
 # FastAPI アプリケーション (backend/main.py 内の app) を起動
-ENTRYPOINT [".venv/bin/uvicorn", "main:app", "--host", "0.0.0.0"]
+ENTRYPOINT [".venv/bin/uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
