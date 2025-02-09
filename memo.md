@@ -8,3 +8,7 @@
 
 - [blueprint](https://blueprintjs.com/)
 - [shadcn](https://ui.shadcn.com/)
+
+## Docker
+
+vite.config.ts と URL を変える必要がある

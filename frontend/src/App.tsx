@@ -1,11 +1,21 @@
-import { useState } from 'react'
+import useSWR from 'swr';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const fetcher = (url: string) =>
+  fetch(url).then((res) => {
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    return res.json();
+  });
 
+function App() {
+  const { data, error } = useSWR('/api/hello', fetcher);
+  // const { data, error } = useSWR('http://localhost:8000/api/hello', fetcher);
+  if (error) return <div>Error: {error.message}</div>;
+  if (!data) return <div>Loading...</div>;
   return (
     <>
       <div>
@@ -18,9 +28,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
