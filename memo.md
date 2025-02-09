@@ -12,3 +12,7 @@
 ## Docker
 
 vite.config.ts と URL を変える必要がある
+
+```bash
+gcloud auth application-default login
+```

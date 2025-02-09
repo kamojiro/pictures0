@@ -6,3 +6,7 @@
 - [Zenn: Google Cloud の IDaaS「Identity Platform」で作る、さまざまな認証パターン](https://zenn.dev/google_cloud_jp/articles/idp-patterns)
 - [Zenn: FastAPI + Vite備忘録](https://zenn.dev/shin_t_o_/articles/vite-and-fastapi)
   - FastAPI の静的アセットに Vite で作成・出力したページを採用
+- [Ggen: Identity-Aware Proxy(IAP)とCloud Armorを使用してCloud Runサービスへのアクセス制御を実装する](https://blog.g-gen.co.jp/entry/authentication-for-cloud-run-with-iap)
+- [Google Cloud: URL マップの概要](https://cloud.google.com/load-balancing/docs/url-map-concepts?hl=ja#url-map-components)
+- [Zenn: Cloud Run と Identity-Aware Proxy で社内限定サービスを構築する](https://zenn.dev/google_cloud_jp/articles/cloudrun-iap)
+- [Google: Cloud Storage のツールを使用した V4 署名プロセス](https://cloud.google.com/storage/docs/access-control/signing-urls-with-helpers?hl=ja#storage-signed-url-object-python)
