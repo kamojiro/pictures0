@@ -1,0 +1,7 @@
+services:
+  app:
+    build:
+      context: .
+    image: "picture-app"
+    ports:
+      - "8000:8000"

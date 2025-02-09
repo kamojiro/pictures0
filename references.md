@@ -1,0 +1,8 @@
+- [Google Cloud: 静的ウェブサイトをホストする](https://cloud.google.com/storage/docs/hosting-static-website?hl=ja)
+- [Zenn: ReactでビルドしたファイルをGoogle Cloud Storageで公開する](https://zenn.dev/collabostyle/articles/29126921a59a59)
+- [Qiita: Reactで作ったサイトをGCSで公開する為にやるべき事](https://qiita.com/kunitaya/items/41a6f9c9ed080caeebe1)
+- [Zenn: ReactでビルドしたファイルをGoogle Cloud Storageで公開する](https://zenn.dev/collabostyle/articles/29126921a59a59)
+- [Zenn: Cloud Storage + LB + Cloud CDN で静的 Web サイトをホスティングする際のキャッシュ設定をおさらい](https://zenn.dev/google_cloud_jp/articles/gcs-cloudcdn-cache)
+- [Zenn: Google Cloud の IDaaS「Identity Platform」で作る、さまざまな認証パターン](https://zenn.dev/google_cloud_jp/articles/idp-patterns)
+- [Zenn: FastAPI + Vite備忘録](https://zenn.dev/shin_t_o_/articles/vite-and-fastapi)
+  - FastAPI の静的アセットに Vite で作成・出力したページを採用
