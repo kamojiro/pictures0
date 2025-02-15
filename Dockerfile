@@ -32,8 +32,8 @@ EXPOSE 8080
 RUN apt-get update
 
 WORKDIR /app/backend
-COPY backend /app/backend
 COPY --from=backend-builder /app/backend/.venv /app/backend/.venv
+COPY backend /app/backend
 
 RUN rm -rf /app/backend/static/*
 COPY --from=frontend-builder /app/frontend/dist/ /app/backend/static/

@@ -1,8 +1,9 @@
+import os
 import datetime
 import random
 
 from google.cloud import storage
-
+from utils.gcs_client import get_storage_client
 
 def get_blob_name(bucket_name: str, blob_name: str) -> str:
     return blob_name.split(f"/{bucket_name}/", 1)[1]
@@ -10,7 +11,7 @@ def get_blob_name(bucket_name: str, blob_name: str) -> str:
 
 class GCSService:
     def __init__(self):
-        self.client = storage.Client()
+        self.client = get_storage_client()
 
     def _generate_signed_url(
         self, bucket_name: str, blob_name: str, expiration_minutes: int = 15
@@ -26,7 +27,6 @@ class GCSService:
         bucket = self.client.bucket(bucket_name)
         print(f"{get_blob_name(bucket_name, blob_name)=}")
         blob = bucket.blob(get_blob_name(bucket_name, blob_name))
-
         # V4署名付きURLを生成
         url = blob.generate_signed_url(
             version="v4",

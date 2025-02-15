@@ -10,3 +10,7 @@
 - [Google Cloud: URL マップの概要](https://cloud.google.com/load-balancing/docs/url-map-concepts?hl=ja#url-map-components)
 - [Zenn: Cloud Run と Identity-Aware Proxy で社内限定サービスを構築する](https://zenn.dev/google_cloud_jp/articles/cloudrun-iap)
 - [Google: Cloud Storage のツールを使用した V4 署名プロセス](https://cloud.google.com/storage/docs/access-control/signing-urls-with-helpers?hl=ja#storage-signed-url-object-python)
+- [Stack Overflow: Why need service account to create a signed url with application default credential](https://stackoverflow.com/questions/70933708/does-python-code-always-need-a-service-account-to-generate-signed-url-for-upload)
+- [Google Cloud Storage Signed URLs with Workload Identity Federation](https://medium.com/google-cloud/google-cloud-storage-signed-urls-with-workload-identity-federation-74e6d5a1e774)
+- [Qiita: GCSからオブジェクトをダウンロードする署名付きURLの発行](https://qiita.com/aipacommander/items/aa31d9fb4ce17d9d4259)
+- [Qiita: [GCP]PythonでCloud Storageの署名付きURL（一時的なURL）を発行する方法](https://qiita.com/hanzawak/items/29f4add8fb4cdb9d997c)
