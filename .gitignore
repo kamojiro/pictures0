@@ -4,3 +4,5 @@ for_llm/
 pages/
 access.md
 imgs/
+.env
+.credential

@@ -12,23 +12,27 @@ const fetcher = (url: string) =>
   });
 
 function App() {
-  const { data, error } = useSWR('/api/hello', fetcher);
-  // const { data, error } = useSWR('http://localhost:8000/api/hello', fetcher);
+  const { data, error } = useSWR('/api/gcs/random/ocmai/signed-url', fetcher);
+  // const { data, error } = useSWR('http://localhost:8000/api/gcs/random/ocmai/signed-url', fetcher);
   if (error) return <div>Error: {error.message}</div>;
   if (!data) return <div>Loading...</div>;
+  const signedUrl = data.signed_url;
   return (
     <>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
+          
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+      <div>
+      <img src={signedUrl} alt="kamomo image" />
+      </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <pre>{JSON.stringify(data, null, 2)}</pre>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
