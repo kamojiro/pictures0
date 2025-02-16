@@ -14,3 +14,4 @@
 - [Google Cloud Storage Signed URLs with Workload Identity Federation](https://medium.com/google-cloud/google-cloud-storage-signed-urls-with-workload-identity-federation-74e6d5a1e774)
 - [Qiita: GCSからオブジェクトをダウンロードする署名付きURLの発行](https://qiita.com/aipacommander/items/aa31d9fb4ce17d9d4259)
 - [Qiita: [GCP]PythonでCloud Storageの署名付きURL（一時的なURL）を発行する方法](https://qiita.com/hanzawak/items/29f4add8fb4cdb9d997c)
+- [GitHub: signed url](https://github.com/salrashid123/gcs_signedurl/tree/main)

@@ -8,3 +8,4 @@
 - [ ] DNS with proxy
 - [ ] URL mask
 - [ ] ruff, pre-commit
+- [x] create signed url in local
