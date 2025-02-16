@@ -14,4 +14,9 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pytest>=8.3.4",
+    "ruff>=0.9.6",
 ]
+
+[tool.ruff.lint]
+select = ["RUF", "I", "UP", "SIM", "FURB", "PIE", "PERF", "C4", "B", "PL", "S"]
+ignore = ["B008"]
