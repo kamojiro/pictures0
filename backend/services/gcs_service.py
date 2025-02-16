@@ -5,6 +5,7 @@ import random
 from google.cloud import storage
 from utils.gcs_client import get_storage_client
 
+
 def get_blob_name(bucket_name: str, blob_name: str) -> str:
     return blob_name.split(f"/{bucket_name}/", 1)[1]
 
@@ -36,7 +37,9 @@ class GCSService:
         print(f"{url=}")
         return url
 
-    def get_random_signed_url(self, bucket_name="ocmai",expiration_minutes: int = 15) -> str:
+    def get_random_signed_url(
+        self, bucket_name="ocmai", expiration_minutes: int = 15
+    ) -> str:
         blob_name_list = [
             "gs://ocmai/kamomo/4530ea9ccf6c6cf7.webp",
             "gs://ocmai/kamomo/fcdf2191d04dee4f.webp",

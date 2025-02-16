@@ -24,9 +24,11 @@ app.mount("/static", StaticFiles(directory="static", html=True), name="static")
 
 app.include_router(gcs_router, prefix="/api")
 
+
 @app.get("/")
 async def read_index():
     return FileResponse("static/index.html")
+
 
 @app.get("/api/hello")
 async def root():
