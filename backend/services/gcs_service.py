@@ -1,9 +1,14 @@
-import os
 import datetime
 import random
 
-from google.cloud import storage
 from utils.gcs_client import get_storage_client
+
+SAMPLES = [
+    "gs://ocmai/any/kamomo_heart.png",
+    "gs://ocmai/any/kamomo_conveyor_belt.webp",
+    "gs://ocmai/any/fes_kamomo_amomo.webp",
+    "gs://ocmai/any/amomo_jitensha.webp",
+]
 
 
 def get_blob_name(bucket_name: str, blob_name: str) -> str:
@@ -13,6 +18,13 @@ def get_blob_name(bucket_name: str, blob_name: str) -> str:
 class GCSService:
     def __init__(self):
         self.client = get_storage_client()
+
+    def list(self, bucket_name: str = "ocmai"):
+        bucket = self.client.bucket(bucket_name)
+        blobs = bucket.list_blobs(
+            prefix="any/", delimiter="/", include_folders_as_prefixes=False
+        )
+        return [blob for blob in blobs if not blob.name.endswith("/")]
 
     def _generate_signed_url(
         self, bucket_name: str, blob_name: str, expiration_minutes: int = 15
@@ -39,12 +51,12 @@ class GCSService:
 
     def get_random_signed_url(
         self, bucket_name="ocmai", expiration_minutes: int = 15
-    ) -> str:
-        blob_name_list = [
-            "gs://ocmai/kamomo/4530ea9ccf6c6cf7.webp",
-            "gs://ocmai/kamomo/fcdf2191d04dee4f.webp",
-            "gs://ocmai/kamomo/kamomo_photobomb.webp",
-            "gs://ocmai/amomo/41c2587fd9e225a7.webp",
-        ]
-        random_index = random.randint(0, 3)
-        return self._generate_signed_url(bucket_name, blob_name_list[random_index])
+    ) -> tuple:
+        blobs = self.list(bucket_name)
+        blob_name_list = [f"gs://{blob.bucket.name}/{blob.name}" for blob in blobs]
+        random_index = random.randint(0, len(blobs))  # noqa: S311
+        return (
+            self._generate_signed_url(bucket_name, blob_name_list[random_index]),
+            blobs[random_index].metadata["title"],
+            blobs[random_index].metadata["tags"],
+        )

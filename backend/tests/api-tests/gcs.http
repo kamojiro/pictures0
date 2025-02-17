@@ -6,4 +6,8 @@ GET {{base_url}}/api/hello
 
 ### get url
 
-GET {{base_url}}/api/gcs/random/ocmai/signed-url
+GET {{base_url}}/api/gcs/ocmai/random/signed-url
+
+### list ocmai
+
+GET {{base_url}}/api/gcs/ocmai/list
