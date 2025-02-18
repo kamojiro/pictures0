@@ -1,7 +1,7 @@
 import useSWR from 'swr';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import FileUpload from './components/file_upload';
 
 const fetcher = (url: string) =>
   fetch(url).then((res) => {
@@ -12,8 +12,8 @@ const fetcher = (url: string) =>
   });
 
 function App() {
-  // const { data, error } = useSWR('/api/gcs/ocmai/random/signed-url', fetcher);
-  const { data, error } = useSWR('http://localhost:8000/api/gcs/ocmai/random/signed-url', fetcher);
+  const { data, error } = useSWR('/api/gcs/ocmai/random/signed-url', fetcher);
+  // const { data, error } = useSWR('http://localhost:8000/api/gcs/ocmai/random/signed-url', fetcher);
   if (error) return <div>Error: {error.message}</div>;
   if (!data) return <div>Loading...</div>;
   const signedUrl = data.signed_url;
@@ -24,6 +24,7 @@ function App() {
       <div>
       <img src={signedUrl} alt="kamomo image" />
       </div>
+      <FileUpload />
     </>
   )
 }

@@ -38,6 +38,7 @@ dependencies = [
     { name = "google-cloud-aiplatform" },
     { name = "google-cloud-storage" },
     { name = "python-dotenv" },
+    { name = "requests" },
 ]
 
 [package.dev-dependencies]
@@ -53,6 +54,7 @@ requires-dist = [
     { name = "google-cloud-aiplatform", specifier = ">=1.80.0" },
     { name = "google-cloud-storage", specifier = "==2.19.0" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
+    { name = "requests", specifier = ">=2.32.3" },
 ]
 
 [package.metadata.requires-dev]

@@ -11,3 +11,15 @@ GET {{base_url}}/api/gcs/ocmai/random/signed-url
 ### list ocmai
 
 GET {{base_url}}/api/gcs/ocmai/list
+
+### upload ocmai
+POST {{base_url}}/api/gcs/ocmai/upload
+
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="kamomo_yaa.webp"
+Content-Type: image/webp
+
+</home/ochir/study/pictures/imgs/kamomo_yaa.webp
+--boundary--

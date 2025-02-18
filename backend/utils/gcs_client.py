@@ -1,32 +1,17 @@
-import requests
-from functools import lru_cache
-
-from google.cloud import storage
-from google.auth import impersonated_credentials
-from google.oauth2.service_account import Credentials
-import google.auth
-
 import os
 
+import google.auth
+from google.auth import impersonated_credentials
+from google.cloud import storage
+from google.oauth2.service_account import Credentials
 
-@lru_cache
-def get_service_account_email() -> str:
-    metadata_url = "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/email"
-    headers = {"Metadata-Flavor": "Google"}
-    try:
-        response = requests.get(metadata_url, headers=headers, timeout=2)
-        response.raise_for_status()
-        return response.text.strip()
-    except Exception as e:
-        raise RuntimeError(
-            "Failed to get service account email from metadata server"
-        ) from e
+from utils.metadata import get_metadata
 
 
 def get_storage_client():
     if os.environ.get("K_SERVICE"):
         credentials, project = google.auth.default()
-        service_account_email = get_service_account_email()
+        service_account_email = get_metadata("email")
         signing_credentials = impersonated_credentials.Credentials(
             source_credentials=credentials,
             target_principal=service_account_email,
