@@ -1,7 +1,6 @@
 import datetime
 import json
 import random
-import uuid
 
 import vertexai
 from fastapi import File
@@ -9,9 +8,6 @@ from vertexai.generative_models import GenerationConfig, GenerativeModel, Part
 
 from utils.gcs_client import get_storage_client
 from utils.metadata import get_metadata
-
-vertexai.init(project=get_metadata("project-id"), location="us-central1")
-model = GenerativeModel("gemini-2.0-flash-001")
 
 SAMPLES = [
     "gs://ocmai/any/kamomo_heart.png",
@@ -72,6 +68,8 @@ class GCSService:
         return [blob for blob in blobs if not blob.name.endswith("/")]
 
     def generate_metadata(self, bucket_name: str, blob_name: str, content_type: str):
+        vertexai.init(project=get_metadata("project-id"), location="us-central1")
+        model = GenerativeModel("gemini-2.0-flash-001")
         gcs_path = f"gs://{bucket_name}/{blob_name}"
         response = model.generate_content(
             [
