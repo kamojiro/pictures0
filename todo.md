@@ -7,7 +7,8 @@
 - [ ] host base routing on LB
 - [ ] DNS with proxy
 - [ ] URL mask
-- [ ] ruff, pre-commit
+- [x] ruff, pre-commit
 - [x] create signed url in local
-- [ ] create signed url in Cloud Run
+- [x] create signed url in Cloud Run
 - [ ] API response includes too many error messages
+- [ ] upload file and create its title and tags
