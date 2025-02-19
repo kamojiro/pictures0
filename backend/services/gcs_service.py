@@ -96,8 +96,9 @@ class GCSService:
             raise ValueError("Content-Type is required")
         bucket = self.client.bucket(bucket_name)
         blob = bucket.blob(blob_name)
+        metageneration_match_precondition = blob.metageneration
         blob.metadata = self.generate_metadata(bucket_name, blob_name, content_type)
-        blob.patch()
+        blob.patch(if_metageneration_match=metageneration_match_precondition)
         return blob.metadata
 
     def upload(
