@@ -15,7 +15,8 @@ def get_storage_client():
         signing_credentials = impersonated_credentials.Credentials(
             source_credentials=credentials,
             target_principal=service_account_email,
-            target_scopes="https://www.googleapis.com/auth/devstorage.read_write",
+            # target_scopes="https://www.googleapis.com/auth/devstorage.read_write",
+            target_scopes="https://www.googleapis.com/auth/devstorage.full_control",
             lifetime=10,
         )
         return storage.Client(credentials=signing_credentials)
