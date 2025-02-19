@@ -17,7 +17,7 @@ def get_metadata(metadatakey: Literal["email", "project-id"]) -> str:
             return response.text.strip()
         except Exception as e:
             raise RuntimeError(
-                f"Failed to get service account {metadatakey} from metadata server"
+                f"Failed to get service account {metadatakey} from metadata server.\n failed to access {metadata_url}"
             ) from e
     else:
         metadata = os.environ.get(metadatakey.upper().replace("-", "_"))
