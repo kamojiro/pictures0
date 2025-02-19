@@ -7,6 +7,7 @@ import requests
 
 @lru_cache
 def get_metadata(metadatakey: Literal["email", "project-id"]) -> str:
+    print(f"🔷{os.environ.get('K_SERVICE')}=")
     if os.environ.get("K_SERVICE") is not None:
         metadata_url = f"http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/{metadatakey}"
         headers = {"Metadata-Flavor": "Google"}
