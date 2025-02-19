@@ -9,7 +9,10 @@ import requests
 def get_metadata(metadatakey: Literal["email", "project-id"]) -> str:
     print(f"🔷{os.environ.get('K_SERVICE')}=")
     if os.environ.get("K_SERVICE") is not None:
-        metadata_url = f"http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/{metadatakey}"
+        if metadatakey == "email":
+            metadata_url = f"http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/{metadatakey}"
+        elif metadatakey == "project-id":
+            metadata_url = f"http://metadata.google.internal/computeMetadata/v1/project/{metadatakey}"
         headers = {"Metadata-Flavor": "Google"}
         try:
             response = requests.get(metadata_url, headers=headers, timeout=2)
